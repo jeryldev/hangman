@@ -1,4 +1,6 @@
 defmodule Dictionary.Runtime.Application do
+  use Application
+
   def start(_type, _args) do
     children = [
       {Dictionary.Runtime.Server, []}
