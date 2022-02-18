@@ -29,8 +29,8 @@ defmodule TextClient.Impl.Player do
     # get next guess
     # make move
     # interact() do recursion
-    Hangman.make_move(game, get_guess())
-    |> interact()
+    tally = Hangman.make_move(game, get_guess())
+    interact({game, tally})
   end
 
   ######################################################################
