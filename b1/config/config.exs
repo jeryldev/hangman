@@ -12,7 +12,7 @@ config :b1, B1Web.Endpoint,
   url: [host: "localhost"],
   render_errors: [view: B1Web.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: B1.PubSub,
-  live_view: [signing_salt: "HMcxKevx"]
+  live_view: [signing_salt: "IaQrFNfY"]
 
 # Configure esbuild (the version is required)
 config :esbuild,
