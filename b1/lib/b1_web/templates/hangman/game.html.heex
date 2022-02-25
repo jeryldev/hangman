@@ -4,8 +4,9 @@
   <%= figure_for(@tally.turns_left) %>
     </pre>
   </div>
+
   <div class="column">
-    <table>
+    <table class="tally">
       <tr>
         <th>Turns left:</th>
         <td> <%= @tally.turns_left %></td>
@@ -19,9 +20,10 @@
         <td> <%= @tally.letters |> Enum.join(" ") %></td>
       </tr>
     </table>
-    <%= form_for(@conn, Routes.hangman_path(@conn, :update), [as: "make_move" , method: :put], fn f -> %>
-    <%= text_input(f, :guess) %>
-    <%= submit("Make next guess") %>
-    <% end) %>
+
+    <%= move_status(@tally.game_state) |> raw() %>
+
+    <%= continue_or_try_again(@conn, @tally.game_state) %>
+
   </div>
 </div>
