@@ -1,14 +1,27 @@
-This is a game
-<p>
-  Turns left: <%= @tally.turns_left %>
-</p>
-<p>
-  Letters used: <%= @tally.used |> Enum.join(", ") %>
-</p>
-<p>
-  Word so far: <%= @tally.letters |> Enum.join(" ") %>
-</p>
-<%= form_for(@conn, Routes.hangman_path(@conn, :update), [as: "make_move" , method: :put], fn f -> %>
-<%= text_input(f, :guess) %>
-<%= submit("Make next guess") %>
-<% end) %>
+<div id="id" class="row">
+  <div class="column">
+    <pre>
+  <%= figure_for(@tally.turns_left) %>
+    </pre>
+  </div>
+  <div class="column">
+    <table>
+      <tr>
+        <th>Turns left:</th>
+        <td> <%= @tally.turns_left %></td>
+      </tr>
+      <tr>
+        <th>Letters used:</th>
+        <td><%= @tally.used |> Enum.join(", ") %></td>
+      </tr>
+      <tr>
+        <th> Word so far:</th>
+        <td> <%= @tally.letters |> Enum.join(" ") %></td>
+      </tr>
+    </table>
+    <%= form_for(@conn, Routes.hangman_path(@conn, :update), [as: "make_move" , method: :put], fn f -> %>
+    <%= text_input(f, :guess) %>
+    <%= submit("Make next guess") %>
+    <% end) %>
+  </div>
+</div>
